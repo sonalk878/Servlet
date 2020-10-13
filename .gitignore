@@ -1,0 +1,9 @@
+target
+tomcat.8080
+tomcat.5000
+#Preventing local(windows) config to mess with deployment configuration
+Procfile
+# IntelliJ Idea project files
+.idea
+*.iml
+entries.*
