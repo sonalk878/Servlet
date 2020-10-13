@@ -164,7 +164,8 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
-      out.println("   <td>Name:</td>");
+      out.println("   <td>Hobby:</td>");
+         out.println("  <tr>");
      out.println("   <td><input type=\"text\" name=\""+Data.HOBBY.name()
       +"\" value=\""+hobby+"\" size=30 required></td>");
      out.println("  </tr>");
