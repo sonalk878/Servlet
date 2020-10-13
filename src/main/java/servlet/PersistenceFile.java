@@ -45,7 +45,7 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
-     String color = request.getParameter(Data.COLOR.name());
+     String hobby = request.getParameter(Data.HOBBY.name());
 
      String error = "";
      if(name == null){
@@ -56,6 +56,11 @@ public class PersistenceFile extends HttpServlet{
      if(age == null){
        error+= "<li>Age is required.<li>";
        age = "";
+       
+     if(hobby == null){
+       error= "<li>hobby is required</li>";
+       hobby = "";
+     }
      }else{
           try{
             Integer ageInteger =new Integer(age);
@@ -88,7 +93,7 @@ public class PersistenceFile extends HttpServlet{
        printTail(out);
      }else{
        printHead(out);
-       printBody(out, name, age, error);
+       printBody(out, name, age,hobby, error);
        printTail(out);
      }
   }
@@ -103,7 +108,7 @@ public class PersistenceFile extends HttpServlet{
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
      printHead(out);
-     printBody(out, "", "", "");
+     printBody(out, "", "","", "");
      printTail(out);
   }
 
@@ -159,6 +164,10 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
+      out.println("   <td>Name:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.HOBBY.name()
+      +"\" value=\""+hobby+"\" size=30 required></td>");
+     out.println("  </tr>");
      out.println("  </tr>");
      out.println(" </table>");
      out.println(" <br>");
@@ -187,6 +196,7 @@ public class PersistenceFile extends HttpServlet{
         out.println("  <tr>");
         out.println("   <th>Name</th>");
         out.println("   <th>Age</th>");
+        out.println("   <th>Hobby</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
         if(!file.exists()){
