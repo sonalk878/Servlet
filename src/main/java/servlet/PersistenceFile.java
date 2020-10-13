@@ -45,6 +45,7 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
+     String color = request.getParameter(Data.COLOR.name());
 
      String error = "";
      if(name == null){
