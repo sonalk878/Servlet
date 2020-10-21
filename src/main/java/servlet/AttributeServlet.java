@@ -43,7 +43,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 		 */
 	   String lifeCycleURL = "/attribute";
 	   out.print  ("<br><a href=\"https://servletapp878.herokuapp.com/attribute"  + "?action=newSession\">");
-	   out.println("Reload this page</a>");
+	   out.println("Create new session</a>");
 	
 	   out.println("</body>");
 	   out.println("</html>");
