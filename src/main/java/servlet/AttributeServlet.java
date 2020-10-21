@@ -36,9 +36,14 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 	
 	   // Create a link so the user can create a new session.
 	   // The link will have a parameter builtin
-	   String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
-	   out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
-	   out.println("Create new session</A>");
+		/*
+		 * String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
+		 * out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
+		 * out.println("Create new session</A>");
+		 */
+	   String lifeCycleURL = "/attribute";
+	   out.print  ("<br><a href=\"https://servletapp878.herokuapp.com/attribute"  + "?action=newSession\">");
+	   out.println("Reload this page</a>");
 	
 	   out.println("</body>");
 	   out.println("</html>");
@@ -66,7 +71,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 	
 	   response.setContentType("text/html");
 	   PrintWriter out = response.getWriter();
-	
+	   out.println("<meta http-equiv=\"Pragma\" content=\"no-cache\">");
 	   out.println("<html>");
 	   // no-cache lets the page reload by clicking on the reload link
 	   out.println("<meta http-equiv=\"Pragma\" content=\"no-cache\">");
@@ -98,11 +103,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 	   out.println("<hr>");
 	   
 	   out.println("Attributes in this session:");
-	   String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
-	   out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
-	   out.println("Invalidate the session</a>");
-	   out.print  ("<br><a href=\"" + lifeCycleURL + "\">");
-	   out.println("Reload this page</a>");
+	
 	   Enumeration e = session.getAttributeNames();
 	   while (e.hasMoreElements())
 	   {
@@ -117,7 +118,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 	      out.print  ("<br><b>Age:</b> ");
 	      out.println(att_age);
 	   } //end while
-	
+	   out.print  ("<br><br><a href=\"" + "?action=invalidate\">");
+	   out.println("Invalidate the session</a>");
 	   out.println("</body>");
 	   out.println("</html>");
 	   out.close();
